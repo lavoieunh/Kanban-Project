@@ -5,8 +5,8 @@ class TrooperDescribeItemState extends TrooperState{
 		
 		TrooperStateMachine tsm; 
 		
-		public TrooperDescribeItemState(TrooperStateMachine minStateMachine) { 
-			tsm = minStateMachine;
+		public TrooperDescribeItemState(TrooperStateMachine tsmStateMachine) { 
+			tsm = tsmStateMachine;
 
 		}
 		
