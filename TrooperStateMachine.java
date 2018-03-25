@@ -6,8 +6,8 @@ class TrooperStateMachine {
 	TrooperStateMachine state = null; 
 
 public TrooperStateMachine(Boolean hasItem ) { 
-    TrooperInventoryItem = new TrooperInventoryState(this);
-	TrooperDescribeItem = new TrooperDescriptionState(this);  
+    TrooperInventoryItem = new TrooperInventoryItemState(this);
+	TrooperDescribeItem = new TrooperDescribeItemState(this);  
 	TrooperEquipItem = new TrooperEquipItemState(this); 
 	TrooperUseItem = new TrooperUseItemState(this); 
 	TrooperNoItem = new TrooperNoItemState(this);
@@ -32,3 +32,4 @@ public void trooperUseItem() {state.trooperConsuming(); state.trooper_state();}
 
 
 }
+
