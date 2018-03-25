@@ -4,8 +4,8 @@ public class TrooperInventoryState extends TrooperState {
 
 	TrooperStateMachine tsm; 
 	
-	public TrooperInventoryState(TrooperStateMachine minStateMachine) { 
-		tsm = minStateMachine;
+	public TrooperInventoryState(TrooperStateMachine tsmStateMachine) { 
+		tsm = tsmStateMachine;
 
 	}
 	
