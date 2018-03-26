@@ -1,34 +1,36 @@
 package endor;
 
 
-class TrooperStateMachine {
-    TrooperStateMachine TrooperInventoryItem, TrooperDescribeItem, TrooperEquipItem, TrooperUseItem, TrooperNoItem, TrooperConsumeItem, TrooperHasItem;
-	TrooperStateMachine state = null; 
+class TrooperStateMachine { TrooperState TrooperDescribeItem, TrooperInventoryItem, TrooperEquipItem, TrooperDropItem;
+	TrooperState state = null; 
 
 public TrooperStateMachine(Boolean hasItem ) { 
-    TrooperInventoryItem = new TrooperInventoryItemState(this);
-	TrooperDescribeItem = new TrooperDescribeItemState(this);  
-	TrooperEquipItem = new TrooperEquipItemState(this); 
-	TrooperUseItem = new TrooperUseItemState(this); 
-	TrooperNoItem = new TrooperNoItemState(this);
-	TrooperConsumeItem = new TrooperConsumeItemState(this);
-	TrooperHasItem = new TrooperHasItemState(this);
-	if (hasItem) state = TrooperHasItem; 
+    TrooperDescribeItem = new TrooperDescribeItemState(this); //1 
+	TrooperInventoryItem = new TrooperInventoryItemState(this);  //2
+	//TrooperEquipItem = new TrooperEquipItemState(this); 
+	//TrooperUseItem = new TrooperUseItemState(this); 
+	//TrooperItemState = new TrooperItemState(this);
+	TrooperEquipItem = new TrooperEquipItemState(this); //3
+	TrooperDropItem = new TrooperDropItemState(this); //4
+	if (hasItem) state = TrooperDescribeItem;
 	else state = TrooperInventoryItem;
 
 }
 
 
-public void trooper_state() {state.trooper_state();} 
+public void display_trooper_state() {state.trooper_state();} 
 
-public void setState(TrooperStateMachine s) {this.state = s; }
+public void setState(TrooperState s) {this.state = s; }
 
-public void trooperHasItem() {state.trooperHasItem(); state.trooper_state();}
-public void trooperNoItem() {state.trooperNoItem(); state.trooper_state();} 
-public void trooperDescribe() {state.trooperDescribe(); state.trooper_state();} 
+//public void trooperHasItem() {state.trooperHasItem(); state.trooper_state();}
+//public String trooperItemCurrentState() { return null; } 
+public void trooperDescribe() {state.trooperDescribeItem(); state.trooper_state();} 
 public void trooperEquipping() {state.trooperEquipping(); state.trooper_state();}
-public void trooperConsuming() {state.trooperConsuming(); state.trooper_state();}
-public void trooperUseItem() {state.trooperConsuming(); state.trooper_state();}
+//public void trooperConsuming() {state.trooperConsuming(); state.trooper_state();}
+public void trooperDropItem() {state.trooperDropItem(); state.trooper_state();}
+public void trooperInventoryItem() {state.trooperInventoryItem(); state.trooper_state();}
+
+
 
 
 }
